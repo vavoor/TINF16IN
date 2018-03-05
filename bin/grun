@@ -1,0 +1,6 @@
+#! /bin/bash
+
+BIN=$(cd $(dirname $0) && pwd)
+LIB=$BIN/../lib
+
+java -cp $LIB/antlr-4.7.1-complete.jar org.antlr.v4.gui.TestRig $@
