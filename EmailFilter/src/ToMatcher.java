@@ -1,19 +1,11 @@
 
-
 public class ToMatcher extends Matcher {
     
     public ToMatcher(String... phrases) {
         super(phrases);
     }
     
-    public boolean isSelected(Email m) {
-        for (String s : phrases) {
-            if (m.toContains(s)) {
-                return true;
-            }
-        }
-        return false;
+    protected boolean match(String phrase, Email mail) {
+        return mail.toContains(phrase);
     }
-	
 }
-

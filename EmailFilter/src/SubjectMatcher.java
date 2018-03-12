@@ -5,13 +5,7 @@ public class SubjectMatcher extends Matcher {
         super(phrases);
     }
     
-    public boolean isSelected(Email m) {
-        for (String s : phrases) {
-            if (m.subjectContains(s)) {
-                return true;
-            }
-        }
-        return false;
+    protected boolean match(String phrase, Email mail) {
+        return mail.subjectContains(phrase);
     }
-	
 }

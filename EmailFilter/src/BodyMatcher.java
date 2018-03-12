@@ -5,12 +5,7 @@ public class BodyMatcher extends Matcher {
         super(phrases);
     }
     
-    public boolean isSelected(Email m) {
-        for (String s : phrases) {
-            if (m.bodyContains(s)) {
-                return true;
-            }
-        }
-        return false;
+    protected boolean match(String phrase, Email mail) {
+        return mail.bodyContains(phrase);
     }
 }
