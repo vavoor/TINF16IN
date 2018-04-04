@@ -1,30 +1,42 @@
 
-# Beispiel Program
+# Beispiel: Bubble Sort
 
-var i int
-var s string
-var d double
+var values [3] double
 
-fn F1 () {
-    if 1 {}
-    var a int
-    if -a>0 {
-        
-    }
-    else {
-        
-    }
-}
-
-fn F2 (a int) double {
-    F2 = F3(1,2,a)
-}
-
-fn F3(a *[] string, b[5] double, c *string) string {
-    var a int
+fn main(args *[] string) int
+{
+    values[0] = 4
+    values[1] = 6
+    values[2] = 2
     
-    a = 1==8+3*-2 && 2<=>6 && 3!=7 || 2 && 4 || 3
+    sort(values,3)
+    
+    main = 0
 }
 
-var a1 [17] string
-var a2 [2] [12] double
+fn sort(arr *[] double, n int)
+{
+    var i int
+    var k int
+    
+    i=0
+    while i<n {
+        k = 0
+        while k<n {
+            if arr[i]>arr[k] {
+                swap(arr[i],arr[k])
+            }
+            k = k+1
+        }
+        i = i+1
+    }
+}
+
+fn swap(x *double, y *double)
+{
+    var t double
+    
+    t = x
+    x = y
+    y = t
+}

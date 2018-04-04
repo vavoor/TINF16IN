@@ -17,20 +17,16 @@ param_decls
     ;
     
 param_decl
-    : Identifier param_type
+    : Identifier type
     ;
     
 type
-    : 'int'
-    | 'double'
-    | 'string'
-    | '[' Integer ']' type
-    ;
-    
-param_type
-    : type
-    | '*' type
-    | '*' '[' ']' type
+    : 'int'                     # intType
+    | 'double'                  # doubleType
+    | 'string'                  # stringType
+    | '[' Integer ']' type      # arrayType
+    | '*' type                  # referenceType
+    | '*' '[' ']' type          # arrayRefType
     ;
     
 block
@@ -38,10 +34,10 @@ block
     ;
     
 stmt
-    : if_stmt
-    | while_stmt
-    | fn_call_stmt
-    | assignment
+    : if_stmt                   # ifStmt
+    | while_stmt                # whileStmt
+    | fn_call_stmt              # callStmt
+    | assignment                # assignStmt
     ;
     
 if_stmt
@@ -67,29 +63,29 @@ lvalue
     ;
     
 expr
-    : Integer
-    | Double
-    | String
-    | lvalue
-    | fn_call
-    | '(' expr ')'
-    | '-' expr
-    | '!' expr
-    | '(' 'int' ')'
-    | '(' 'double' ')'
-    | expr '*' expr
-    | expr '/' expr
-    | expr '+' expr
-    | expr '-' expr
-    | expr '<' expr
-    | expr '>' expr
-    | expr '<=' expr
-    | expr '>=' expr
-    | expr '<=>' expr
-    | expr '==' expr
-    | expr '!=' expr
-    | expr '&&' expr
-    | expr '||' expr
+    : Integer                   # intLiteral
+    | Double                    # doubleLiteral
+    | String                    # stringLiteral
+    | lvalue                    # lvalExpr
+    | fn_call                   # callExpr
+    | '(' expr ')'              # bracketExpr
+    | '-' expr                  # negExpr
+    | '!' expr                  # notExpr
+    | '(' 'int' ')' expr        # intCastExpr
+    | '(' 'double' ')' expr     # doubleCastExpr
+    | expr '*' expr             # multExpr
+    | expr '/' expr             # divExpr
+    | expr '+' expr             # addExpr
+    | expr '-' expr             # subExpr
+    | expr '<' expr             # lessExpr
+    | expr '>' expr             # greaterExpr
+    | expr '<=' expr            # lessEqualExpr
+    | expr '>=' expr            # greaterEqualExpr
+    | expr '<=>' expr           # compExpr
+    | expr '==' expr            # equalExpr
+    | expr '!=' expr            # notEqualExpr
+    | expr '&&' expr            # andExpr
+    | expr '||' expr            # orExpr
     ;
     
 fn_call
