@@ -38,6 +38,7 @@ stmt
     | while_stmt                # whileStmt
     | fn_call_stmt              # callStmt
     | assignment                # assignStmt
+    | block                     # blockStmt
     ;
     
 if_stmt
