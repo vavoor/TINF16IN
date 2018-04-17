@@ -1,10 +1,10 @@
 grammar Pipifax;
 
 program
-    : (var_decl | fn_def)*
+    : (gvar_decl | fn_def)*
     ;
     
-var_decl
+gvar_decl
     : 'var' Identifier type
     ;
     
@@ -30,9 +30,14 @@ type
     ;
     
 block
-    : '{' (stmt | var_decl)* '}'
+    : '{' (stmt | lvar_decl)* '}'
     ;
+
     
+lvar_decl
+    : 'var' Identifier type
+    ;
+
 stmt
     : if_stmt                   # ifStmt
     | while_stmt                # whileStmt

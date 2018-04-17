@@ -16,11 +16,11 @@ public interface PipifaxVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgram(PipifaxParser.ProgramContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link PipifaxParser#var_decl}.
+	 * Visit a parse tree produced by {@link PipifaxParser#gvar_decl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVar_decl(PipifaxParser.Var_declContext ctx);
+	T visitGvar_decl(PipifaxParser.Gvar_declContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PipifaxParser#fn_def}.
 	 * @param ctx the parse tree
@@ -88,6 +88,12 @@ public interface PipifaxVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBlock(PipifaxParser.BlockContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PipifaxParser#lvar_decl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLvar_decl(PipifaxParser.Lvar_declContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ifStmt}
 	 * labeled alternative in {@link PipifaxParser#stmt}.
 	 * @param ctx the parse tree
@@ -115,6 +121,13 @@ public interface PipifaxVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAssignStmt(PipifaxParser.AssignStmtContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code blockStmt}
+	 * labeled alternative in {@link PipifaxParser#stmt}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlockStmt(PipifaxParser.BlockStmtContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PipifaxParser#if_stmt}.
 	 * @param ctx the parse tree
